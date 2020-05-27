@@ -80,7 +80,7 @@ def traverse_directory(filepath, first_date, last_date, recursive):
     dir_date = get_random_date(first_date, last_date)
     set_file_times(filepath, first_date, last_date, dir_date)
     for f in os.listdir(filepath):
-        fa = filepath + "\\" + f
+        fa = os.path.join(filepath, f)
         if path.isdir(fa) and recursive:
             traverse_directory(fa, dir_date, last_date, recursive)
         else:
@@ -94,25 +94,29 @@ def traverse_directory(filepath, first_date, last_date, recursive):
 # @param last_date The end of the date range (datetime object)
 # @param creation Optional argument to overwrite the creation date
 def set_file_times(filepath, first_date, last_date, creation=None):
-    if creation == None:
-        creation = get_random_date(first_date, last_date)
-    mod = get_random_date(creation, last_date)
-    access = get_random_date(mod, last_date)
-    creation_unix = date_time_to_unix_time(creation)
-    mod_unix = date_time_to_unix_time(mod)
-    access_unix = date_time_to_unix_time(access)
-    
-    if not path.isdir(filepath):
-            setctime(filepath, creation_unix)
-    
-    # To do: make this configurable via param (remember to change param type to int)
-    # Mod time is set to creation time 30% of the time for files and 80% of the time for directories
-    # Random mod time later then creation time is used otherwise
-    rnd = randint(1, 10)
-    if rnd  <= 3 or (path.isdir(filepath) and (rnd <= 8)):
-        os.utime(filepath, (access_unix, creation_unix))
-    else:
-        os.utime(filepath, (access_unix, mod_unix))
+    try:
+        if creation == None:
+            creation = get_random_date(first_date, last_date)
+        mod = get_random_date(creation, last_date)
+        access = get_random_date(mod, last_date)
+        creation_unix = date_time_to_unix_time(creation)
+        mod_unix = date_time_to_unix_time(mod)
+        access_unix = date_time_to_unix_time(access)
+        
+        if not path.isdir(filepath):
+                setctime(filepath, creation_unix)
+        
+        
+        # To do: make this configurable via param (remember to change param type to int)
+        # Mod time is set to creation time 30% of the time for files and 80% of the time for directories
+        # Random mod time later then creation time is used otherwise
+        rnd = randint(1, 10)
+        if rnd  <= 3 or (path.isdir(filepath) and (rnd <= 8)):
+            os.utime(filepath, (access_unix, creation_unix))
+        else:
+            os.utime(filepath, (access_unix, mod_unix))
+    except Exception as e:
+        print("Failed to modify '", filepath, "' - ", e)
     
 ##
 # Converts datetime objects into unix timestamps    
