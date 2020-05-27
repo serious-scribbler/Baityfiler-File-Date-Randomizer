@@ -7,7 +7,7 @@
   },
   {
    "optionDest": "filenames",
-   "value": "D:/1_OneDrive/OneDrive/Dokumente/Projekte/Python/filedatechanger/baityfiler.py"
+   "value": "D:/1_OneDrive/OneDrive/Dokumente/Projekte/Python/Baityfiler-File-Date-Randomizer/baityfiler.py"
   },
   {
    "optionDest": "onefile",
@@ -16,6 +16,10 @@
   {
    "optionDest": "console",
    "value": true
+  },
+  {
+   "optionDest": "icon_file",
+   "value": "D:/1_OneDrive/OneDrive/Dokumente/Projekte/Python/Baityfiler-File-Date-Randomizer/Assets/Baityfiler.ico"
   },
   {
    "optionDest": "name",
