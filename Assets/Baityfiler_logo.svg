@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 1182 1182" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
-    <g transform="matrix(1.08333,0,0,1.08333,-37.535,-60.8902)">
-        <path d="M765.301,131.252L904.575,270.843L904.575,1071.41L254.969,1071.41L254.969,131.252L765.301,131.252Z" style="fill:white;"/>
-        <g transform="matrix(0.771824,0,0,1,397.753,-439.873)">
+    <g id="FileIcon">
+        <g transform="matrix(1.08333,0,0,1.08333,-37.535,-60.5949)">
+            <path d="M727.495,307.326L904.575,307.326L904.575,1071.41L254.969,1071.41L254.969,131.252L727.495,131.252L727.495,307.326Z" style="fill:white;"/>
+        </g>
+        <g transform="matrix(0.836143,0,0,1.08333,394.847,-538.936)">
             <path d="M430.402,557.443L675.246,746.851L430.402,746.851L430.402,557.443Z" style="fill:white;stroke:black;stroke-width:30.51px;"/>
         </g>
-        <path d="M735.841,101.724L765.301,131.252L254.969,131.252L254.969,1071.41L904.575,1071.41L904.575,270.843L934.103,300.438L934.103,1100.94L225.441,1100.94L225.441,101.724L735.841,101.724Z"/>
+        <g transform="matrix(1.08333,0,0,1.08333,-37.535,-60.5949)">
+            <path d="M735.841,101.724L765.301,131.252L254.969,131.252L254.969,1071.41L904.575,1071.41L904.575,270.843L934.103,300.438L934.103,1100.94L225.441,1100.94L225.441,101.724L735.841,101.724Z"/>
+        </g>
     </g>
     <g id="Worm-and-hook" serif:id="Worm and hook" transform="matrix(1,0,0,1,-0.673849,151.574)">
         <g id="Hook">
