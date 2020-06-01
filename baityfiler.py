@@ -35,10 +35,11 @@ import os
 
 
 def main():
-
-    desc = "Sets the creation, modification and access dates of files to a random date in the provided range. Changing the creation dates of directories is not supported."
-    epi = "Example: 'Baityfiler.exe 1981-01-01 2012-12-31 test.txt' If the given file is a directory, all files and directories in it will be modified, but not files in subdirectories, the modification and access times of the directory will also be changed."
-    parser = argparse.ArgumentParser(prog="Baityfiler - File date randomizer", description=desc, epilog=epi)
+    
+    print("\n")
+    desc = "Sets the creation, modification and access dates of files to a random date in the provided range.\nChanging the creation dates of directories is not supported.\n\nBaityfiler is licensed under the MIT license and makes use of libraries licensed under MIT and Apache 2 licenses.\nCheck notices.txt for more information.\n\nCopyright (c) 2020 Phil Niehus"
+    epi = "Example use:\n\t'Baityfiler.exe 1981-01-01 2012-12-31 test.txt'\n\nIf the given file is a directory, all files and directories in it will be modified, but not files in subdirectories,\nthe modification and access times of the directory will also be changed.\n"
+    parser = argparse.ArgumentParser(prog="Baityfiler - File date randomizer", description=desc, epilog=epi, formatter_class=argparse.RawTextHelpFormatter)
     
     parser.add_argument("startdate", help="The beginning of the desired date range. Recommended format: YYYY-MM-DD")
     parser.add_argument("enddate", help="The end of the desired date range")
@@ -108,10 +109,10 @@ def set_file_times(filepath, first_date, last_date, creation=None):
         
         
         # To do: make this configurable via param (remember to change param type to int)
-        # Mod time is set to creation time 30% of the time for files and 80% of the time for directories
+        # Mod time is set to creation time 60% of the time for files and 80% of the time for directories
         # Random mod time later then creation time is used otherwise
         rnd = randint(1, 10)
-        if rnd  <= 3 or (path.isdir(filepath) and (rnd <= 8)):
+        if rnd  <= 6 or (path.isdir(filepath) and (rnd <= 8)):
             os.utime(filepath, (access_unix, creation_unix))
         else:
             os.utime(filepath, (access_unix, mod_unix))
@@ -131,7 +132,10 @@ def date_time_to_unix_time(dt):
 # @return A random datetime within the given range
 def get_random_date(first_date, last_date):
     difference = last_date - first_date
-    random_addition = randrange(difference.total_seconds())
+    try:
+        random_addition = randrange(difference.total_seconds())
+    except:
+        random_addition = randrange(43200) # 12h Variance window for same day dates
     return first_date + datetime.timedelta(seconds=random_addition)
     
 if __name__ == '__main__':
