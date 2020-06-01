@@ -6,6 +6,8 @@ You can download the .exe from the [releases tab](https://github.com/serious-scr
 
 # How to use Baityfiler
 
+Execute the listed comands in a powershell or cmd window in the directory your Baityfiler.exe is stored.
+
 ## Changing the dates of a single file
 
 This example sets the access, modification and creation dates of _examplefile.txt_ to random dates between June 1, 1990 and December 31, 2000.
