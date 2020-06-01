@@ -6,22 +6,22 @@ You can download the .exe from the [releases tab](https://github.com/serious-scr
 
 # How to use Baityfiler
 
-##Changing the dates of a single file
+## Changing the dates of a single file
 
 This example sets the access, modification and creation dates of _examplefile.txt_ to random dates between June 1, 1990 and December 31, 2000.
 `Baityfiler.exe 1990-06-01 2000-12-31 examplefile.txt`
 
-##Changing the dates of all files in a directory
+## Changing the dates of all files in a directory
 
 This example changes the dates of all files and directories in the _testdir_ directory and the dates of the directory itself. Anything contained in its subdirectories will stay unchanged.
 `Baityfiler.exe 1984-06-01 2000-05-04 testdir\`
 
-##Changing the dates of all files in a directory and it's subdirectories
+## Changing the dates of all files in a directory and it's subdirectories
 
 This example changes the dates of all files and directories in the _testdir_ directory and its subdirectories.The dates of the directory itself will also be changed.
 `Baityfiler.exe 1984-06-01 2000-05-04 testdir\ -r`
 
-##Getting help
+## Getting help
 
 Any comand ending with the `-h` flag will display the help, this includes `Baityfiler.exe -h` without the normally required parameters.
 
